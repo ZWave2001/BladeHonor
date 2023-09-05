@@ -1,0 +1,6 @@
+#	测试用表								
+#	Id			Name	Des	Defense	Damage	AttackRate	HealthPoint
+#	int			string	string	int	int	float	int
+#	配置ID	策划备注	策划乱写	名称	描述	防御力	攻击力	攻击频率	生命值
+	1001	测试1	测试11	test1	simple test1	1	1	1	1
+	1002	测试2	测试22	test2	simple test2	2	2	2	2
