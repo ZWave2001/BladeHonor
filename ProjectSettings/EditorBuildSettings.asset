@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/BladeHonor Launcher.unity
+    guid: 50a655d2236de714081ad4a9e215b6ce
+  - enabled: 1
+    path: Assets/GameMain/Scenes/Menu.unity
+    guid: 06cf530bfbc7e9c42b935ae04068e8a6
   m_configObjects: {}

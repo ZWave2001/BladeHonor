@@ -12,7 +12,7 @@ namespace BladeHonor
     /// <summary>
     /// 对话框显示数据。
     /// </summary>
-    public class DialogParams
+    public class PopupParams
     {
         /// <summary>
         /// 模式，即按钮数量。取值 1、2、3。

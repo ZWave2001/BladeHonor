@@ -438,7 +438,6 @@ namespace GameFramework.Config
         /// <returns>是否增加全局配置项成功。</returns>
         public bool AddConfig(string configName, bool boolValue, int intValue, float floatValue, string stringValue)
         {
-            Debug.Log("AddConfig");
             if (HasConfig(configName))
             {
                 return false;

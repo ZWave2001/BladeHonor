@@ -152,24 +152,26 @@ namespace BladeHonor
             return uiComponent.OpenUIForm(assetName, drUIForm.UIGroupName, Constant.AssetPriority.UIFormAsset, drUIForm.PauseCoveredUIForm, userData);
         }
 
-        public static void OpenDialog(this UIComponent uiComponent, DialogParams dialogParams)
+        public static void OpenDialog(this UIComponent uiComponent, PopupParams popupParams)
         {
             // if (((ProcedureBase)GameEntry.Procedure.CurrentProcedure).UseNativeDialog)
             // {
-            //     OpenNativeDialog(dialogParams);
+            //     OpenNativeDialog(popupParams);
             // }
             // else
             // {
-            //     uiComponent.OpenUIForm(UIFormId.DialogForm, dialogParams);
+            //     uiComponent.OpenUIForm(UIFormId.PopupForm, popupParams);
             // }
+            
+            uiComponent.OpenUIForm(UIFormId.PopupForm, popupParams);
         }
 
-        private static void OpenNativeDialog(DialogParams dialogParams)
+        private static void OpenNativeDialog(PopupParams popupParams)
         {
             // TODO：这里应该弹出原生对话框，先简化实现为直接按确认按钮
-            if (dialogParams.OnClickConfirm != null)
+            if (popupParams.OnClickConfirm != null)
             {
-                dialogParams.OnClickConfirm(dialogParams.UserData);
+                popupParams.OnClickConfirm(popupParams.UserData);
             }
         }
     }

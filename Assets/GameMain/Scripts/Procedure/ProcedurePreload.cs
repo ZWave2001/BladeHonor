@@ -24,6 +24,7 @@ namespace BladeHonor
             "Sound",
             "UIForm",
             "UISound",
+            "Scene"
         };
 
         private Dictionary<string, bool> m_LoadedFlag = new Dictionary<string, bool>();

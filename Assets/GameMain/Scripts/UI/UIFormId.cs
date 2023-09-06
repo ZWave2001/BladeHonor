@@ -17,21 +17,26 @@ namespace BladeHonor
         /// <summary>
         /// 弹出框。
         /// </summary>
-        DialogForm = 1,
+        PopupForm = 1,
 
         /// <summary>
         /// 主菜单。
         /// </summary>
-        MenuForm = 100,
+        MenuForm = 101,
+        
+        /// <summary>
+        /// 对话框。
+        /// </summary>
+        DialogForm = 102,
 
         /// <summary>
         /// 设置。
         /// </summary>
-        SettingForm = 101,
+        SettingForm = 103,
 
         /// <summary>
         /// 关于。
         /// </summary>
-        AboutForm = 102,
+        AboutForm = 104,
     }
 }
