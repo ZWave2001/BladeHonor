@@ -100,7 +100,7 @@ namespace BladeHonor
                 texts[i].font = s_MainFont;
                 if (!string.IsNullOrEmpty(texts[i].text))
                 {
-                    texts[i].text = GameEntry.Localization.GetString(texts[i].text);
+                    texts[i].text = GameEntry.Localization.GetString(texts[i].text).Replace(@"\n", "\n");
                 }
             }
         }

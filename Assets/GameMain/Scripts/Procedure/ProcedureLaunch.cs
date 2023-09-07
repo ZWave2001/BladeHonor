@@ -66,8 +66,7 @@ namespace BladeHonor
 
             if (language != Language.English
                 && language != Language.ChineseSimplified
-                && language != Language.ChineseTraditional
-                && language != Language.Korean)
+                && language != Language.Japanese)
             {
                 // 若是暂不支持的语言，则使用英语
                 language = Language.English;

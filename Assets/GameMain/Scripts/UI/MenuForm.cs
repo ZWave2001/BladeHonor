@@ -3,6 +3,7 @@
 // --------------------------------------------------------------------------
 
 using System;
+using GameFramework.UI;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityGameFramework.Runtime;
@@ -17,11 +18,9 @@ namespace BladeHonor
         [SerializeField] private Button settingButton;
 
         private ProcedureMenu _ProcedureMenu;
-
         protected override void OnInit(object userData)
         {
             base.OnInit(userData);
-            
             startGameButton.onClick.AddListener(OnClickStartGame);
             aboutButton.onClick.AddListener(OnClickAbout);
             quitButton.onClick.AddListener(OnClickQuit);
@@ -41,13 +40,23 @@ namespace BladeHonor
                 ConfirmText = GameEntry.Localization.GetString("1006"),
                 CancelText = GameEntry.Localization.GetString("1007"),
                 Message = GameEntry.Localization.GetString("1008"),
-                OnClickConfirm = delegate(object o) { UnityGameFramework.Runtime.GameEntry.Shutdown(ShutdownType.Quit);}
+                OnClickConfirm = delegate(object userData) { UnityGameFramework.Runtime.GameEntry.Shutdown(ShutdownType.Quit);}
             });
         }
 
         private void OnClickAbout()
         {
             GameEntry.UI.OpenUIForm(UIFormId.AboutForm);
+        }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+        }
+
+        protected override void OnReveal()
+        {
+            base.OnReveal();
         }
 
         private void OnClickStartGame()
@@ -64,6 +73,17 @@ namespace BladeHonor
                 Log.Warning("ProcedureMenu is Null while opening MenuForm");
             }
             
+        }
+
+        protected override void OnUpdate(float elapseSeconds, float realElapseSeconds)
+        {
+            base.OnUpdate(elapseSeconds, realElapseSeconds);
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                IUIGroup uiGroup = GameEntry.UI.GetUIGroup("Default");
+                uiGroup.Pause = !uiGroup.Pause;
+                print($"Pause UIGroup {uiGroup.Name} {uiGroup.Pause}");
+            }
         }
     }
 }
