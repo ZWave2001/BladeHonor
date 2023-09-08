@@ -39,7 +39,7 @@ namespace BladeHonor
             if (_StartGame)
             {
                 procedureOwner.SetData<VarInt32>("NextSceneId", GameEntry.Config.GetInt("Scene.Main"));
-                ChangeState<ProcedureMain>(procedureOwner);
+                ChangeState<ProcedureChangeScene>(procedureOwner);
             }
         }
 

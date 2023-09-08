@@ -2,8 +2,12 @@
 // Time: 2023/09/06 11:15
 // --------------------------------------------------------------------------
 
+using System;
+using GameFramework.Event;
 using GameFramework.Fsm;
 using GameFramework.Procedure;
+using UnityEngine;
+using UnityGameFramework.Runtime;
 
 namespace BladeHonor
 {
@@ -12,12 +16,23 @@ namespace BladeHonor
         protected override void OnInit(IFsm<IProcedureManager> procedureOwner)
         {
             base.OnInit(procedureOwner);
+            
+            
         }
         
+
         protected override void OnEnter(IFsm<IProcedureManager> procedureOwner)
         {
             base.OnEnter(procedureOwner);
+            
+            GameEntry.Entity.ShowPlayer(new ThiefData(GameEntry.Entity.GenerateSerialId(), 1001)
+            {
+                Name = "Player",
+                Position = new Vector3(5,17,0),
+            });
+            
         }
+        
 
         protected override void OnUpdate(IFsm<IProcedureManager> procedureOwner, float elapseSeconds, float realElapseSeconds)
         {

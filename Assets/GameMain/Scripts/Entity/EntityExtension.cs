@@ -61,6 +61,12 @@ namespace BladeHonor
             entityComponent.ShowEntity(data.Id, logicType, AssetUtility.GetEntityAsset(drEntity.AssetName), entityGroup, priority, data);
         }
 
+
+        public static void ShowPlayer(this EntityComponent entityComponent, ThiefData data)
+        {
+            entityComponent.ShowEntity(typeof(Thief), "Thief", Constant.AssetPriority.ThiefAsset, data);
+        }
+
         public static int GenerateSerialId(this EntityComponent entityComponent)
         {
             return --s_SerialId;
