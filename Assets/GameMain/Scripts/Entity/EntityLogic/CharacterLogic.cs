@@ -11,6 +11,24 @@ namespace BladeHonor
     {
         [SerializeField]
         private CharacterData _CharacterData;
+
+        public bool IsHurt
+        {
+            get;
+            set;
+        }
+
+        public bool IsWalk
+        {
+            get;
+            set;
+        }
+
+        public bool IsJump
+        {
+            get;
+            set;
+        }
         
         private void OnTriggerEnter(Collider other)
         {

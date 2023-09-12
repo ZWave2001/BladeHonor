@@ -26,6 +26,7 @@ namespace BladeHonor
             Defense = data.Defense;
             Speed = data.Speed;
             Armor = data.Armor;
+            DashDistance = data.DashDistance;
         }
         
         

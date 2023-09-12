@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2023-09-08 16:53:23.559
+// 生成时间：2023-09-11 11:32:15.520
 //------------------------------------------------------------
 
 using GameFramework;
@@ -81,6 +81,15 @@ namespace BladeHonor
             private set;
         }
 
+        /// <summary>
+        /// 获取冲刺距离。
+        /// </summary>
+        public float DashDistance
+        {
+            get;
+            private set;
+        }
+
         public override bool ParseDataRow(string dataRowString, object userData)
         {
             string[] columnStrings = dataRowString.Split(DataTableExtension.DataSplitSeparators);
@@ -98,6 +107,7 @@ namespace BladeHonor
             Health = float.Parse(columnStrings[index++]);
             Armor = float.Parse(columnStrings[index++]);
             Speed = float.Parse(columnStrings[index++]);
+            DashDistance = float.Parse(columnStrings[index++]);
 
             GeneratePropertyArray();
             return true;
@@ -115,6 +125,7 @@ namespace BladeHonor
                     Health = binaryReader.ReadSingle();
                     Armor = binaryReader.ReadSingle();
                     Speed = binaryReader.ReadSingle();
+                    DashDistance = binaryReader.ReadSingle();
                 }
             }
 

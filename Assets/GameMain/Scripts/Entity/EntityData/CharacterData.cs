@@ -14,6 +14,7 @@ namespace BladeHonor
         [SerializeField] private float _Attack;
         [SerializeField] private float _Armor;
         [SerializeField] private float _Speed;
+        [SerializeField] private float _DashDistance;
 
 
         public float Health
@@ -44,6 +45,12 @@ namespace BladeHonor
         {
             get => _Speed;
             set => _Speed = value;
+        }
+
+        public float DashDistance
+        {
+            get => _DashDistance;
+            set => _DashDistance = value;
         }
 
 
