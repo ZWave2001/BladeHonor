@@ -24,7 +24,19 @@ namespace BladeHonor
             set;
         }
 
-        public bool IsJump
+        public bool OffGround
+        {
+            get;
+            set;
+        }
+
+        public bool LockMovement
+        {
+            get;
+            set;
+        }
+
+        public bool StopMovement
         {
             get;
             set;

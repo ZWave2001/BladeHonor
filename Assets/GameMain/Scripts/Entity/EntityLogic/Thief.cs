@@ -12,17 +12,13 @@ namespace BladeHonor
         [SerializeField] private Animator _Animator;
         [SerializeField] private Rigidbody2D _Rigibody;
 
-        [SerializeField]
+        private AnimationClip[] _clips;
+        
         private int _Walk;
-        [SerializeField]
         private int _Attack;
-        [SerializeField]
         private int _Jump;
-        [SerializeField]
         private int _Dash;
-        [SerializeField]
         private int _Hurt;
-        [SerializeField]
         private int _Dead;
 
         [SerializeField]
@@ -59,44 +55,80 @@ namespace BladeHonor
             _Dead = Animator.StringToHash("Dead");
 
             _Direction = new Vector2(1, 0);
+            
+            
         }
 
         protected override void OnUpdate(float elapseSeconds, float realElapseSeconds)
         {
             base.OnUpdate(elapseSeconds, realElapseSeconds);
             _Direction.x = Input.GetAxisRaw("Horizontal");
-
+            
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                _Direction.y = 1;
+                _Animator.SetTrigger(_Jump);
+                _Rigibody.velocity = new Vector2(_Rigibody.velocity.x, 5f);
+            }
+            
+            if (!LockMovement)
+            {
+                if (Math.Abs(_Direction.x) > 0.1f)
+                {
+                    _Animator.SetBool(_Walk, true);
+                    _Rigibody.velocity = new Vector2(_Direction.x * _ThiefData.Speed, _Rigibody.velocity.y);
+                    // transform.Translate(new Vector3(_Direction.x, 0, 0) * _ThiefData.Speed * Time.deltaTime);
+                    transform.SetLocalScaleX(Mathf.Lerp(transform.localScale.x, -_Direction.x, 0.9f));
+                }
+                else
+                {
+                    _Rigibody.velocity = new Vector2(0, _Rigibody.velocity.y);
+                    _Animator.SetBool(_Walk, false);
+                }
             }
 
-            if (Math.Abs(_Direction.x) > 0.1f)
+            if (StopMovement)
             {
-                _Animator.SetBool(_Walk, true);
-                transform.Translate(new Vector3(_Direction.x, 0, 0) * _ThiefData.Speed * Time.deltaTime);
-                transform.SetLocalScaleX(Mathf.Lerp(transform.localScale.x, -_Direction.x, 0.8f));
+                _Rigibody.velocity = new Vector2(0, 0);
             }
-            else
-            {
-                _Animator.SetBool(_Walk, false);
-            }
+            
 
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                _Animator.SetTrigger(_Attack);
+                if (!OffGround)
+                {
+                    _Animator.SetTrigger(_Attack);
+                    StopMovement = true;
+                }
             }
 
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
-                _Animator.SetTrigger(_Dash);
-                transform.SetPositionX(transform.position.x + ((transform.localScale.x < 0)?1:-1) * _ThiefData.DashDistance);
+                if (!StopMovement)
+                {
+                    _Animator.SetTrigger(_Dash);
+                    transform.SetPositionX(transform.position.x + ((transform.localScale.x < 0)?1:-1) * _ThiefData.DashDistance);
+                }
             }
-            
+
+            #region Check Grounded
+            var raycastAll = Physics2D.RaycastAll(transform.position, Vector2.down, 0.2f, LayerMask.GetMask("Ground"));
+            OffGround = (raycastAll.Length == 0);
+            LockMovement = (raycastAll.Length == 0);
+            #endregion
+     
             
         }
 
-        
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(transform.position, transform.position + Vector3.down * 0.2f);
+        }
+
+        public void shit()
+        {
+            
+        }
     }
 }
 
