@@ -56,7 +56,8 @@ namespace BladeHonor
 
             _Direction = new Vector2(1, 0);
             
-            
+            //绑定动画事件
+            AddAnimationEvent(_Animator, "attack", "OnAttackComplete", 1f);
         }
 
         protected override void OnUpdate(float elapseSeconds, float realElapseSeconds)
@@ -64,13 +65,24 @@ namespace BladeHonor
             base.OnUpdate(elapseSeconds, realElapseSeconds);
             _Direction.x = Input.GetAxisRaw("Horizontal");
             
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                _Animator.SetTrigger(_Jump);
-                _Rigibody.velocity = new Vector2(_Rigibody.velocity.x, 5f);
-            }
             
-            if (!LockMovement)
+            if (!OffGround)
+            {
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    _Animator.SetTrigger(_Jump);
+                    _Rigibody.velocity = new Vector2(_Rigibody.velocity.x, Constant.DefaultEntityData.JumpVelocity);
+                }
+            }
+
+            //Make Jumping Feel Better 
+            if (_Rigibody.velocity.y > 0)
+                _Rigibody.gravityScale = Constant.DefaultEntityData.JumpUpGravity;
+            else
+                _Rigibody.gravityScale = Constant.DefaultEntityData.JumpDownGravity;
+        
+            
+            if (!LockMovement && !StopMovement)
             {
                 if (Math.Abs(_Direction.x) > 0.1f)
                 {
@@ -113,7 +125,10 @@ namespace BladeHonor
             #region Check Grounded
             var raycastAll = Physics2D.RaycastAll(transform.position, Vector2.down, 0.2f, LayerMask.GetMask("Ground"));
             OffGround = (raycastAll.Length == 0);
-            LockMovement = (raycastAll.Length == 0);
+            // LockMovement = (raycastAll.Length == 0);
+            
+            
+            
             #endregion
      
             
@@ -125,10 +140,18 @@ namespace BladeHonor
             Gizmos.DrawLine(transform.position, transform.position + Vector3.down * 0.2f);
         }
 
-        public void shit()
+
+
+        #region AnimationEvent Function
+
+        private void OnAttackComplete()
         {
-            
+            StopMovement = false;
         }
+        
+        
+
+        #endregion
     }
 }
 

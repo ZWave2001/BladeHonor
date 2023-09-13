@@ -7,6 +7,7 @@
 
 using GameFramework.DataTable;
 using System;
+using UnityEngine;
 using UnityGameFramework.Runtime;
 
 namespace BladeHonor
@@ -58,11 +59,11 @@ namespace BladeHonor
                 return;
             }
 
-            entityComponent.ShowEntity(data.Id, logicType, AssetUtility.GetEntityAsset(drEntity.AssetName), entityGroup, priority, data);
+            entityComponent.ShowEntity(data.Id, logicType, AssetUtility.GetEntityAsset(drEntity.AssetType ,drEntity.AssetName), entityGroup, priority, data);
         }
 
 
-        public static void ShowPlayer(this EntityComponent entityComponent, ThiefData data)
+        public static void ShowCharater(this EntityComponent entityComponent, ThiefData data)
         {
             entityComponent.ShowEntity(typeof(Thief), "Thief", Constant.AssetPriority.ThiefAsset, data);
         }
@@ -71,5 +72,6 @@ namespace BladeHonor
         {
             return --s_SerialId;
         }
+        
     }
 }

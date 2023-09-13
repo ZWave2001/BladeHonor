@@ -47,9 +47,9 @@ namespace BladeHonor
             return Utility.Text.Format("Assets/GameMain/Sounds/{0}.wav", assetName);
         }
 
-        public static string GetEntityAsset(string assetName)
+        public static string GetEntityAsset(string entityType, string assetName)
         {
-            return Utility.Text.Format("Assets/GameMain/Entities/{0}.prefab", assetName);
+            return Utility.Text.Format("Assets/GameMain/Entities/{0}/{1}.prefab", entityType,assetName);
         }
 
         public static string GetUIFormAsset(string assetName)

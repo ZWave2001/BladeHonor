@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2023-09-11 11:32:15.447
+// 生成时间：2023-09-13 11:54:10.262
 //------------------------------------------------------------
 
 using GameFramework;
@@ -45,6 +45,15 @@ namespace BladeHonor
             private set;
         }
 
+        /// <summary>
+        /// 获取实体类型。
+        /// </summary>
+        public string AssetType
+        {
+            get;
+            private set;
+        }
+
         public override bool ParseDataRow(string dataRowString, object userData)
         {
             string[] columnStrings = dataRowString.Split(DataTableExtension.DataSplitSeparators);
@@ -58,6 +67,7 @@ namespace BladeHonor
             m_Id = int.Parse(columnStrings[index++]);
             index++;
             AssetName = columnStrings[index++];
+            AssetType = columnStrings[index++];
 
             GeneratePropertyArray();
             return true;
@@ -71,6 +81,7 @@ namespace BladeHonor
                 {
                     m_Id = binaryReader.Read7BitEncodedInt32();
                     AssetName = binaryReader.ReadString();
+                    AssetType = binaryReader.ReadString();
                 }
             }
 

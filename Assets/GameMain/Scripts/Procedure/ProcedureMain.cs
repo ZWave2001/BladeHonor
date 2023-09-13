@@ -25,7 +25,7 @@ namespace BladeHonor
         {
             base.OnEnter(procedureOwner);
             
-            GameEntry.Entity.ShowPlayer(new ThiefData(GameEntry.Entity.GenerateSerialId(), 1001)
+            GameEntry.Entity.ShowCharater(new ThiefData(GameEntry.Entity.GenerateSerialId(), 1001)
             {
                 Name = "Player",
                 Position = new Vector3(5,17,0),
