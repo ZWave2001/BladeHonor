@@ -71,15 +71,15 @@ namespace BladeHonor
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     _Animator.SetTrigger(_Jump);
-                    _Rigibody.velocity = new Vector2(_Rigibody.velocity.x, Constant.DefaultEntityData.JumpVelocity);
+                    _Rigibody.velocity = new Vector2(_Rigibody.velocity.x, DefaultCharacterData.JumpVelocity);
                 }
             }
 
             //Make Jumping Feel Better 
             if (_Rigibody.velocity.y > 0)
-                _Rigibody.gravityScale = Constant.DefaultEntityData.JumpUpGravity;
+                _Rigibody.gravityScale = DefaultCharacterData.JumpUpGravity;
             else
-                _Rigibody.gravityScale = Constant.DefaultEntityData.JumpDownGravity;
+                _Rigibody.gravityScale = DefaultCharacterData.JumpDownGravity;
         
             
             if (!LockMovement && !StopMovement)
@@ -95,7 +95,7 @@ namespace BladeHonor
                 {
                     _Rigibody.velocity = new Vector2(0, _Rigibody.velocity.y);
                     _Animator.SetBool(_Walk, false);
-                }
+                }   
             }
 
             if (StopMovement)
@@ -126,8 +126,6 @@ namespace BladeHonor
             var raycastAll = Physics2D.RaycastAll(transform.position, Vector2.down, 0.2f, LayerMask.GetMask("Ground"));
             OffGround = (raycastAll.Length == 0);
             // LockMovement = (raycastAll.Length == 0);
-            
-            
             
             #endregion
      

@@ -63,7 +63,7 @@ namespace BladeHonor
         }
 
 
-        public static void ShowCharater(this EntityComponent entityComponent, ThiefData data)
+        public static void ShowCharacter(this EntityComponent entityComponent, ThiefData data)
         {
             entityComponent.ShowEntity(typeof(Thief), "Thief", Constant.AssetPriority.ThiefAsset, data);
         }
@@ -72,6 +72,8 @@ namespace BladeHonor
         {
             return --s_SerialId;
         }
+
+        
         
     }
 }
