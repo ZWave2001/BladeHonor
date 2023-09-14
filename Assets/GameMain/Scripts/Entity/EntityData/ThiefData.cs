@@ -9,13 +9,14 @@ namespace BladeHonor
     [Serializable]
     public class ThiefData : CharacterData
     {
-        private string _Name;
-
+        
         public string Name
         {
-            get => _Name;
-            set => _Name = value;
+            get;
+            set;
         }
+        
+        
 
         public ThiefData(int entityId, int typeId) : base(entityId, typeId)
         {

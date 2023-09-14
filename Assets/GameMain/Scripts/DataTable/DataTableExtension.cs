@@ -88,5 +88,30 @@ namespace BladeHonor
             string[] splitedValue = value.Split(',');
             return new Vector4(float.Parse(splitedValue[0]), float.Parse(splitedValue[1]), float.Parse(splitedValue[2]), float.Parse(splitedValue[3]));
         }
+        
+        public static Vector2[] ParseVector2Array(string value)
+        {
+            string[] splitedValue = value.Split(';');
+            Vector2[] res = new Vector2[splitedValue.Length];
+            for (int i = 0; i < res.Length; i++)
+            {
+                string[] tempSplitedValue = splitedValue[i].Split(',');
+                Vector2 temp = new Vector2(float.Parse(tempSplitedValue[0]), float.Parse(tempSplitedValue[1]));
+                res[i] = temp;
+            }
+
+            return res;
+        }
+        
+        public static int[] ParseInt32Array(string value)
+        {
+            string[] splitedValue = value.Split(',');
+            int[] res = new int[splitedValue.Length];
+            for (int i = 0; i < res.Length; i++)
+            {
+                res[i] = int.Parse(splitedValue[i]);
+            }
+            return res;
+        }
     }
 }

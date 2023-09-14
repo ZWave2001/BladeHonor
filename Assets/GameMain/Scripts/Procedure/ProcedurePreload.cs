@@ -26,6 +26,8 @@ namespace BladeHonor
             "UISound",
             "Scene",
             "Character",
+            "EntityGroup",
+            "Level",
         };
 
         private Dictionary<string, bool> m_LoadedFlag = new Dictionary<string, bool>();

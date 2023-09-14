@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2023-09-14 17:59:52.044
+// 生成时间：2023-09-14 17:59:52.051
 //------------------------------------------------------------
 
 using GameFramework;
@@ -19,14 +19,14 @@ using UnityGameFramework.Runtime;
 namespace BladeHonor
 {
     /// <summary>
-    /// 声音配置表。
+    /// 实体组表。
     /// </summary>
-    public class DRUISound : DataRowBase
+    public class DREntityGroup : DataRowBase
     {
         private int m_Id = 0;
 
         /// <summary>
-        /// 获取声音编号。
+        /// 获取实体组编号。
         /// </summary>
         public override int Id
         {
@@ -37,27 +37,45 @@ namespace BladeHonor
         }
 
         /// <summary>
-        /// 获取资源名称。
+        /// 获取实体组名称。
         /// </summary>
-        public string AssetName
+        public string EntityGroupName
         {
             get;
             private set;
         }
 
         /// <summary>
-        /// 获取优先级（默认0，128最高，-128最低）。
+        /// 获取实体实例对象池自动释放可释放对象的间隔秒数。
         /// </summary>
-        public int Priority
+        public float InstanceAutoReleaseInterval
         {
             get;
             private set;
         }
 
         /// <summary>
-        /// 获取音量（0-1)。
+        /// 获取实体实例对象池容量。
         /// </summary>
-        public float Volume
+        public int InstanceCapacity
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// 获取实体实例对象池对象过期秒数。
+        /// </summary>
+        public float InstanceExpireTime
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// 获取实体实例对象池的优先级。
+        /// </summary>
+        public int InstancePriority
         {
             get;
             private set;
@@ -74,10 +92,11 @@ namespace BladeHonor
             int index = 0;
             index++;
             m_Id = int.Parse(columnStrings[index++]);
-            index++;
-            AssetName = columnStrings[index++];
-            Priority = int.Parse(columnStrings[index++]);
-            Volume = float.Parse(columnStrings[index++]);
+            EntityGroupName = columnStrings[index++];
+            InstanceAutoReleaseInterval = float.Parse(columnStrings[index++]);
+            InstanceCapacity = int.Parse(columnStrings[index++]);
+            InstanceExpireTime = float.Parse(columnStrings[index++]);
+            InstancePriority = int.Parse(columnStrings[index++]);
 
             GeneratePropertyArray();
             return true;
@@ -90,9 +109,11 @@ namespace BladeHonor
                 using (BinaryReader binaryReader = new BinaryReader(memoryStream, Encoding.UTF8))
                 {
                     m_Id = binaryReader.Read7BitEncodedInt32();
-                    AssetName = binaryReader.ReadString();
-                    Priority = binaryReader.Read7BitEncodedInt32();
-                    Volume = binaryReader.ReadSingle();
+                    EntityGroupName = binaryReader.ReadString();
+                    InstanceAutoReleaseInterval = binaryReader.ReadSingle();
+                    InstanceCapacity = binaryReader.Read7BitEncodedInt32();
+                    InstanceExpireTime = binaryReader.ReadSingle();
+                    InstancePriority = binaryReader.Read7BitEncodedInt32();
                 }
             }
 

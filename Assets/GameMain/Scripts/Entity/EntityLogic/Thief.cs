@@ -134,9 +134,7 @@ namespace BladeHonor
             
             #endregion
             
-            #region Check If Can Dash
-
-            
+            #region Check If Can FullDash
             var raycastAll2 = Physics2D.RaycastAll(transform.position + Vector3.up * 0.5f,
                 transform.right * ((transform.localScale.x < 0) ? 1 : -1), _ThiefData.DashDistance, LayerMask.GetMask("Ground"));
             CanFullDash = (raycastAll2.Length == 0);
@@ -151,7 +149,6 @@ namespace BladeHonor
             {
                 _dashDistance = _ThiefData.DashDistance;
             }
-
             #endregion
 
 

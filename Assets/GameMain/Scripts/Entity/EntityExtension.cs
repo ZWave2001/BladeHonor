@@ -43,7 +43,7 @@ namespace BladeHonor
         }
         
 
-        private static void ShowEntity(this EntityComponent entityComponent, Type logicType, string entityGroup, int priority, EntityData data)
+        private static void ShowEntity(this EntityComponent entityComponent, Type logicType , int priority, EntityData data)
         {
             if (data == null)
             {
@@ -59,13 +59,26 @@ namespace BladeHonor
                 return;
             }
 
+            IDataTable<DREntityGroup> dtEntityGroup = GameEntry.DataTable.GetDataTable<DREntityGroup>();
+            DREntityGroup drEntityGroup = dtEntityGroup.GetDataRow(drEntity.EntityGroupId);
+            string entityGroup = drEntityGroup.EntityGroupName;
+
+            GameEntry.Entity.AddEntityGroup(entityGroup, drEntityGroup.InstanceAutoReleaseInterval,
+                drEntityGroup.InstanceCapacity, drEntityGroup.InstanceExpireTime, drEntityGroup.InstancePriority);
+            
             entityComponent.ShowEntity(data.Id, logicType, AssetUtility.GetEntityAsset(drEntity.AssetType ,drEntity.AssetName), entityGroup, priority, data);
         }
 
+        
 
         public static void ShowCharacter(this EntityComponent entityComponent, ThiefData data)
         {
-            entityComponent.ShowEntity(typeof(Thief), "Thief", Constant.AssetPriority.ThiefAsset, data);
+            entityComponent.ShowEntity(typeof(Thief),  Constant.AssetPriority.ThiefAsset, data);
+        }
+
+        public static void ShowNewLevel(this EntityComponent entityComponent, LevelData data)
+        {
+            entityComponent.ShowEntity(typeof(Level), Constant.AssetPriority.LevelAsset, data);
         }
 
         public static int GenerateSerialId(this EntityComponent entityComponent)

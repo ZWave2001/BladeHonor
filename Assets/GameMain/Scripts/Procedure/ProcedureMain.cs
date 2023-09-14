@@ -28,19 +28,32 @@ namespace BladeHonor
             base.OnEnter(procedureOwner);
             GameEntry.Event.Subscribe(ShowEntitySuccessEventArgs.EventId, OnShowPlayerSuccess);
             
-            
-            GameEntry.Entity.ShowCharacter(new ThiefData(GameEntry.Entity.GenerateSerialId(), 1001)
+            GameEntry.Entity.ShowNewLevel(new LevelData(GameEntry.Entity.GenerateSerialId(), 1007)
             {
-                Name = "Player",
-                Position = new Vector3(5,0,0),
+                Position = new Vector3(0,0,0),
             });
+            
             
         }
 
         private void OnShowPlayerSuccess(object sender, GameEventArgs e)
         {
             ShowEntitySuccessEventArgs ne = (ShowEntitySuccessEventArgs)e;
-            CameraFollow.Player = ne.Entity.gameObject;
+            if (ne.UserData is LevelData)
+            {
+                LevelData data = (LevelData)ne.UserData;
+
+                CameraFollow.startPosX = data.LevelStartPos;
+                CameraFollow.endPosX = data.LevelEndPos;
+                
+                GameEntry.Entity.ShowCharacter(new ThiefData(GameEntry.Entity.GenerateSerialId(), 1001)
+                {
+                    Name = "Player",
+                    Position = new Vector3(data.PlayerSpawnPos[0].x, data.PlayerSpawnPos[0].y, 0),
+                });
+            }
+            else if (ne.UserData is ThiefData)
+                CameraFollow.Player = ne.Entity.gameObject;
         }
 
 

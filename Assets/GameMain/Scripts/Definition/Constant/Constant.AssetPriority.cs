@@ -29,6 +29,8 @@ namespace BladeHonor
             public const int ArcherAsset = 70;
             public const int MageAsset = 70;
             public const int MerchantAsset = 60;
+            
+            public const int LevelAsset = 80;
         }
     }
 }

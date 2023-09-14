@@ -168,7 +168,13 @@ namespace BladeHonor.Editor.DataTableTools
                 }
                 else
                 {
-                    stringBuilder.AppendFormat("            {0} = DataTableExtension.Parse{1}(columnStrings[index++]);", dataTableProcessor.GetName(i), dataTableProcessor.GetType(i).Name).AppendLine();
+                    if (dataTableProcessor.GetType(i).Name.Contains("[]"))
+                    {
+                        string parseFuncName = dataTableProcessor.GetType(i).Name.Replace("[]", "Array");
+                        stringBuilder.AppendFormat("            {0} = DataTableExtension.Parse{1}(columnStrings[index++]);", dataTableProcessor.GetName(i), parseFuncName).AppendLine();
+                    }
+                    else
+                        stringBuilder.AppendFormat("            {0} = DataTableExtension.Parse{1}(columnStrings[index++]);", dataTableProcessor.GetName(i), dataTableProcessor.GetType(i).Name).AppendLine();
                 }
             }
 
@@ -206,7 +212,13 @@ namespace BladeHonor.Editor.DataTableTools
                 }
                 else
                 {
-                    stringBuilder.AppendFormat("                    {0} = binaryReader.Read{1}();", dataTableProcessor.GetName(i), dataTableProcessor.GetType(i).Name).AppendLine();
+                    if (dataTableProcessor.GetType(i).Name.Contains("[]"))
+                    {
+                        string parseFuncName = dataTableProcessor.GetType(i).Name.Replace("[]", "Array");
+                        stringBuilder.AppendFormat("                    {0} = binaryReader.Read{1}();", dataTableProcessor.GetName(i), parseFuncName).AppendLine();
+                    }
+                    else
+                        stringBuilder.AppendFormat("                    {0} = binaryReader.Read{1}();", dataTableProcessor.GetName(i), dataTableProcessor.GetType(i).Name).AppendLine();
                 }
             }
 

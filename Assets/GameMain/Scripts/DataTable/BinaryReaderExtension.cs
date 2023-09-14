@@ -52,5 +52,30 @@ namespace BladeHonor
         {
             return new Vector4(binaryReader.ReadSingle(), binaryReader.ReadSingle(), binaryReader.ReadSingle(), binaryReader.ReadSingle());
         }
+
+        public static int[] ReadInt32Array(this BinaryReader binaryReader)
+        {
+            int length = binaryReader.ReadInt32();
+            int[] intArray = new int[length];
+            for (int i = 0; i < length; i++)
+            {
+                intArray[i] = binaryReader.ReadInt32();
+            }
+
+            return intArray;
+        }
+
+        public static Vector2[] ReadVector2Array(this BinaryReader binaryReader)
+        {
+            int length = binaryReader.ReadInt32();
+            Vector2[] vector2Array = new Vector2[length];
+            for (int i = 0; i < length; i++)
+            {
+                Vector2 vector2 = new Vector2(binaryReader.ReadSingle(), binaryReader.ReadSingle());
+                vector2Array[i] = vector2;
+            }
+
+            return vector2Array;
+        }
     }
 }
