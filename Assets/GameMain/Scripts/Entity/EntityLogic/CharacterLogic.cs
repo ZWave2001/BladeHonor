@@ -12,36 +12,47 @@ namespace BladeHonor
         [SerializeField]
         private CharacterData _CharacterData;
 
+        [SerializeField]
         public bool IsHurt
         {
             get;
             set;
         }
 
+        [SerializeField]
         public bool IsWalk
         {
             get;
             set;
         }
 
+        [SerializeField]
         public bool OffGround
         {
             get;
             set;
         }
 
+        [SerializeField]
         public bool LockMovement
         {
             get;
             set;
         }
 
+        [SerializeField]
         public bool StopMovement
         {
             get;
             set;
         }
-        
+
+        [SerializeField]
+        public bool CanFullDash
+        {
+            get;
+            set;
+        }
         private void OnTriggerEnter(Collider other)
         {
             throw new NotImplementedException();

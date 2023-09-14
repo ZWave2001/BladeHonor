@@ -11,6 +11,7 @@ namespace BladeHonor
         [SerializeField] private ThiefData _ThiefData;
         [SerializeField] private Animator _Animator;
         [SerializeField] private Rigidbody2D _Rigibody;
+        [SerializeField] private Collider2D _collider;
 
         private AnimationClip[] _clips;
         
@@ -23,6 +24,8 @@ namespace BladeHonor
 
         [SerializeField]
         private Vector2 _Direction;
+
+        private float _dashDistance;
         
         protected override void OnInit(object userData)
         {
@@ -46,6 +49,8 @@ namespace BladeHonor
             _ThiefData = userData as ThiefData;
             _Animator = GetComponent<Animator>();
             _Rigibody = GetComponent<Rigidbody2D>();
+            _collider = GetComponent<Collider2D>();
+
             
             _Walk = Animator.StringToHash("Walk");
             _Attack = Animator.StringToHash("Attack");
@@ -89,7 +94,7 @@ namespace BladeHonor
                     _Animator.SetBool(_Walk, true);
                     _Rigibody.velocity = new Vector2(_Direction.x * _ThiefData.Speed, _Rigibody.velocity.y);
                     // transform.Translate(new Vector3(_Direction.x, 0, 0) * _ThiefData.Speed * Time.deltaTime);
-                    transform.SetLocalScaleX(Mathf.Lerp(transform.localScale.x, -_Direction.x, 0.9f));
+                    transform.SetLocalScaleX(-_Direction.x);
                 }
                 else
                 {
@@ -118,24 +123,47 @@ namespace BladeHonor
                 if (!StopMovement)
                 {
                     _Animator.SetTrigger(_Dash);
-                    transform.SetPositionX(transform.position.x + ((transform.localScale.x < 0)?1:-1) * _ThiefData.DashDistance);
+                    transform.SetPositionX(transform.position.x + ((transform.localScale.x < 0)?1:-1) * _dashDistance);
                 }
             }
 
             #region Check Grounded
-            var raycastAll = Physics2D.RaycastAll(transform.position, Vector2.down, 0.2f, LayerMask.GetMask("Ground"));
-            OffGround = (raycastAll.Length == 0);
+            var raycastAll1 = Physics2D.RaycastAll(transform.position, Vector2.down, 0.2f, LayerMask.GetMask("Ground"));
+            OffGround = (raycastAll1.Length == 0);
             // LockMovement = (raycastAll.Length == 0);
             
             #endregion
-     
             
+            #region Check If Can Dash
+
+            
+            var raycastAll2 = Physics2D.RaycastAll(transform.position + Vector3.up * 0.5f,
+                transform.right * ((transform.localScale.x < 0) ? 1 : -1), _ThiefData.DashDistance, LayerMask.GetMask("Ground"));
+            CanFullDash = (raycastAll2.Length == 0);
+
+
+            if (!CanFullDash)
+            {
+                var distance = Mathf.Abs(transform.position.x - raycastAll2[0].point.x) - _collider.bounds.size.x / 2.0f;
+                _dashDistance = distance > 0 ? distance : 0;
+            }
+            else
+            {
+                _dashDistance = _ThiefData.DashDistance;
+            }
+
+            #endregion
+
+
         }
 
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.red;
             Gizmos.DrawLine(transform.position, transform.position + Vector3.down * 0.2f);
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(transform.position + Vector3.up * 0.5f, transform.position + Vector3.up * 0.5f +
+                                                                    Vector3.right * ((transform.localScale.x < 0)?1:-1) * _ThiefData.DashDistance);
         }
 
 
