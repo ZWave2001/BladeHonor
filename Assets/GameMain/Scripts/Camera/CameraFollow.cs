@@ -25,12 +25,12 @@ namespace BladeHonor
         {
             if (Player != null)
             {
-                if (Player.transform.position.x < startPosX + 2 * _halfCameraWidth)
+                if (Player.transform.position.x < startPosX +  _halfCameraWidth)
                 {
                     _camera.transform.SetLocalPositionX(startPosX + _halfCameraWidth);
                 }
 
-                else if (Player.transform.position.x > endPosX - 2 * _halfCameraWidth)
+                else if (Player.transform.position.x > endPosX -  _halfCameraWidth)
                 {
                     _camera.transform.SetLocalPositionX(endPosX - _halfCameraWidth);
                 }

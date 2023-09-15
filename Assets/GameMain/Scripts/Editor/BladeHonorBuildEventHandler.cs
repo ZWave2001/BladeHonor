@@ -13,7 +13,7 @@ using UnityGameFramework.Editor.ResourceTools;
 
 namespace BladeHonor.Editor
 {
-    public sealed class StarForceBuildEventHandler : IBuildEventHandler
+    public sealed class BladeHonorBuildEventHandler : IBuildEventHandler
     {
         public bool ContinueOnFailure
         {
