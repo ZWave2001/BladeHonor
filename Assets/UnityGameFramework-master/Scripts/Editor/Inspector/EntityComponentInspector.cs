@@ -19,6 +19,7 @@ namespace UnityGameFramework.Editor
         private SerializedProperty m_EnableShowEntityDependencyAssetEvent = null;
         private SerializedProperty m_InstanceRoot = null;
         //Note m_EntityGroups到底是哪里赋值的？不能是自己手动加上去的吧？
+        //还真是 现在改成生成Entity的时候生成对应的EntityGroup
         private SerializedProperty m_EntityGroups = null;
 
         private HelperInfo<EntityHelperBase> m_EntityHelperInfo = new HelperInfo<EntityHelperBase>("Entity");
