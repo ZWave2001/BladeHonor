@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 15712f50d47ed2545a734a965839b4e5
+labels:
+- ResourceExclusive
 TextScriptImporter:
   externalObjects: {}
   userData: 

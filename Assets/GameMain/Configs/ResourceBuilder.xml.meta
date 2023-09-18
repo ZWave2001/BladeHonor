@@ -1,3 +1,9 @@
 fileFormatVersion: 2
 guid: 992fb7229b714a16987230a5ebf6c4d1
-timeCreated: 1694772656
+labels:
+- ResourceExclusive
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
