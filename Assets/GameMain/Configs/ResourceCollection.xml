@@ -7,7 +7,9 @@
       <Resource Name="DataTables" LoadType="0" Packed="True" />
       <Resource Name="Entities" LoadType="0" Packed="True" />
       <Resource Name="Fonts" LoadType="0" Packed="True" />
+      <Resource Name="HotUpdate" LoadType="0" Packed="True" />
       <Resource Name="Localization" LoadType="0" Packed="True" />
+      <Resource Name="Materials" LoadType="0" Packed="True" />
       <Resource Name="Scenes" LoadType="0" Packed="True" />
       <Resource Name="Textures" LoadType="0" Packed="True" />
       <Resource Name="TileSet" LoadType="0" Packed="True" />
@@ -96,6 +98,7 @@
       <Asset Guid="33e3a0b8e0c07a4418c2101e96c7913a" ResourceName="TileSet" />
       <Asset Guid="36347194fa3c3cf4fa39bb4f159da84f" ResourceName="TileSet" />
       <Asset Guid="366bd147d3b568843ab9463d10b7fb98" ResourceName="Entities" />
+      <Asset Guid="367fef7c7a0cf8b4e8fc2020259965e9" ResourceName="Textures" />
       <Asset Guid="389c7e1a1dabb4e1e917001420b89c9a" ResourceName="Entities" />
       <Asset Guid="38facfed6438ebb47868336328e2c102" ResourceName="TileSet" />
       <Asset Guid="39789699661f687489455fe11f5e1832" ResourceName="Entities" />
@@ -115,6 +118,7 @@
       <Asset Guid="4184c92d441824ac3beb993f17f0d0fc" ResourceName="Animation" />
       <Asset Guid="41d4294f662241e458641e7328f39628" ResourceName="Entities" />
       <Asset Guid="41d9cecf85d5949458c64355cb90028a" ResourceName="TileSet" />
+      <Asset Guid="429517ea1b1287a47952cd5cd8261d74" ResourceName="Textures" />
       <Asset Guid="42e1d7a1fa04b42afae61f8f69e58bb5" ResourceName="Animation" />
       <Asset Guid="43a7d98bd4222b64e933596512dc09ad" ResourceName="Textures" />
       <Asset Guid="43dcd116eba340349ad1535ea93256f2" ResourceName="DataTables" />
@@ -214,6 +218,7 @@
       <Asset Guid="9b4d0a451b335d0439f8282731a599ec" ResourceName="TileSet" />
       <Asset Guid="9bb15da213806c6448b94a85643eda41" ResourceName="TileSet" />
       <Asset Guid="9be21d0cc76a54cb3b1d888b51070247" ResourceName="Animation" />
+      <Asset Guid="9d1a3e0bc36dfc9468a738d92b6e92d4" ResourceName="Textures" />
       <Asset Guid="9d48a7a01bd2b4ac2be455308956add9" ResourceName="Animation" />
       <Asset Guid="9dd474f514245f640baed33713672c65" ResourceName="TileSet" />
       <Asset Guid="9e969fe8689bd614cb2a3757ea24e14c" ResourceName="DataTables" />
@@ -232,7 +237,6 @@
       <Asset Guid="adc65cd0668ecba44a61465710dd60af" ResourceName="TileSet" />
       <Asset Guid="b076c268235cb7348a5d9a036ec254c4" ResourceName="Entities" />
       <Asset Guid="b0feadbfcecd75c4fb1909ec7a09ab8a" ResourceName="TileSet" />
-      <Asset Guid="b11973d7f7bb51543bf657297f47bf03" ResourceName="UI" />
       <Asset Guid="b155d6aff005aaa4381c9ade27613d57" ResourceName="TileSet" />
       <Asset Guid="b1fbfb2e46f5647b2b8caf9c4c98a346" ResourceName="Animation" />
       <Asset Guid="b3a7476539edcb6449010a93187bc504" ResourceName="TileSet" />
@@ -264,6 +268,7 @@
       <Asset Guid="cae7b1ccf658b4c99b4e5ec4eb041f1b" ResourceName="Animation" />
       <Asset Guid="cb8f23dad7578c74293a791769d37f5d" ResourceName="TileSet" />
       <Asset Guid="cc7e2ac2fe688954c9f41fbbd988689c" ResourceName="TileSet" />
+      <Asset Guid="ce976e5c505f017409ae00280b075d91" ResourceName="HotUpdate" />
       <Asset Guid="cf1462bc694c3c249831ad8ac5293aa2" ResourceName="Textures" />
       <Asset Guid="cf9f5edc2c1226e43afd03b9b1e0f377" ResourceName="DataTables" />
       <Asset Guid="d006713011a0fd9448e16cb42f867735" ResourceName="TileSet" />
@@ -299,6 +304,7 @@
       <Asset Guid="e17f85306994480489d98b33592867bc" ResourceName="TileSet" />
       <Asset Guid="e1e8f4274952449cdb6abc0a7c04caf9" ResourceName="Animation" />
       <Asset Guid="e25962a23b0ae06459d988ce85f4476e" ResourceName="Entities" />
+      <Asset Guid="e2a7255f011495047a05eb59adabd49a" ResourceName="Materials" />
       <Asset Guid="e373ab4d44edd2f4488da32274b5aa3d" ResourceName="TileSet" />
       <Asset Guid="e3ef72d9f2a941b479a3bda87147db32" ResourceName="Entities" />
       <Asset Guid="e5f3b61ef85e1794bbc707305bd8b3a2" ResourceName="TileSet" />
@@ -336,6 +342,7 @@
       <Asset Guid="fc9968c4dc5d5264b89413cdfe5d303e" ResourceName="Entities" />
       <Asset Guid="fca2cf49b9cfe46079dd70486883bc82" ResourceName="Animation" />
       <Asset Guid="fcd87736526220840868ede2ec050399" ResourceName="TileSet" />
+      <Asset Guid="fd00b29c3d9553d4c8e0ab3b572af409" ResourceName="Textures" />
       <Asset Guid="fdf2447b2cc569d46ad997f3d7397454" ResourceName="TileSet" />
       <Asset Guid="fee0eb169d7d14a40930edb8f1faadea" ResourceName="Animation" />
       <Asset Guid="ff89252f0b0a74b8db908dc76557a804" ResourceName="Animation" />
