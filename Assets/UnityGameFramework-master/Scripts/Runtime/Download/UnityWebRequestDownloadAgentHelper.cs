@@ -128,7 +128,7 @@ namespace UnityGameFramework.Runtime
                 Log.Fatal("Download agent helper handler is invalid.");
                 return;
             }
-
+            //Note: 通过设置Header来实现断点续传
             m_UnityWebRequest = new UnityWebRequest(downloadUri);
             m_UnityWebRequest.SetRequestHeader("Range", Utility.Text.Format("bytes={0}-", fromPosition));
             m_UnityWebRequest.downloadHandler = new DownloadHandler(this);

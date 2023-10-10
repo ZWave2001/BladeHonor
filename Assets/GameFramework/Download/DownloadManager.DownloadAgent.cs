@@ -284,6 +284,7 @@ namespace GameFramework.Download
                 m_Disposed = true;
             }
 
+            //Note: 这里将下载的数据写入本地
             private void OnDownloadAgentHelperUpdateBytes(object sender, DownloadAgentHelperUpdateBytesEventArgs e)
             {
                 m_WaitTime = 0f;

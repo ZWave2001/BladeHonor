@@ -562,7 +562,7 @@ namespace UnityGameFramework.Runtime
                 return;
             }
 
-            //Note 编辑器模式下EditorResourceHelper为EditoResourceComponent
+            //Note 编辑器模式下EditorResourceHelper为EditorResourceComponent
             if (baseComponent.EditorResourceMode)
             {
                 baseComponent.EditorResourceHelper = this;
