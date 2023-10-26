@@ -27,6 +27,7 @@ namespace UnityGameFramework.Runtime
             {
                 m_Owner = owner;
             }
+            
 
             //Note:这里执行Download Update
             protected override bool ReceiveData(byte[] data, int dataLength)
