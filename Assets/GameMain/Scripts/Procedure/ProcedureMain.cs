@@ -26,7 +26,7 @@ namespace BladeHonor
         protected override void OnEnter(IFsm<IProcedureManager> procedureOwner)
         {
             base.OnEnter(procedureOwner);
-            GameEntry.Event.Subscribe(ShowEntitySuccessEventArgs.EventId, OnShowPlayerSuccess);
+            GameEntry.Event.Subscribe(ShowEntitySuccessEventArgs.EventId, OnShowEntitySuccess);
             
             GameEntry.Entity.ShowNewLevel(new LevelData(GameEntry.Entity.GenerateSerialId(), 1007)
             {
@@ -36,7 +36,7 @@ namespace BladeHonor
             
         }
 
-        private void OnShowPlayerSuccess(object sender, GameEventArgs e)
+        private void OnShowEntitySuccess(object sender, GameEventArgs e)
         {
             ShowEntitySuccessEventArgs ne = (ShowEntitySuccessEventArgs)e;
             if (ne.UserData is LevelData)
@@ -65,7 +65,7 @@ namespace BladeHonor
         protected override void OnLeave(IFsm<IProcedureManager> procedureOwner, bool isShutdown)
         {
             base.OnLeave(procedureOwner, isShutdown);
-            GameEntry.Event.Unsubscribe(ShowEntitySuccessEventArgs.EventId, OnShowPlayerSuccess);
+            GameEntry.Event.Unsubscribe(ShowEntitySuccessEventArgs.EventId, OnShowEntitySuccess);
         }
     }
 }
