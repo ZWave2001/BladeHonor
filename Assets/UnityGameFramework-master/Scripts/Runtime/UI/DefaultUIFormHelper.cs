@@ -16,7 +16,7 @@ namespace UnityGameFramework.Runtime
     public class DefaultUIFormHelper : UIFormHelperBase
     {
         private ResourceComponent m_ResourceComponent = null;
-
+        
         /// <summary>
         /// 实例化界面。
         /// </summary>
@@ -42,7 +42,7 @@ namespace UnityGameFramework.Runtime
                 Log.Error("UI form instance is invalid.");
                 return null;
             }
-
+            
             Transform transform = gameObject.transform;
             transform.SetParent(((MonoBehaviour)uiGroup.Helper).transform);
             transform.localScale = Vector3.one;

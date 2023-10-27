@@ -7,6 +7,7 @@
 
 using GameFramework.DataTable;
 using System;
+using System.Text;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 

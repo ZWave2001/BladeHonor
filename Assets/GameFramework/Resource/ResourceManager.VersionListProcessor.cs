@@ -84,7 +84,7 @@ namespace GameFramework.Resource
                 {
                     throw new GameFrameworkException("Read-write path is invalid.");
                 }
-
+                //Note: 检查本地存的版本号和远程下载的版本号是否相同来确定是否需要更新
                 string versionListFileName = Utility.Path.GetRegularPath(Path.Combine(m_ResourceManager.m_ReadWritePath, RemoteVersionListFileName));
                 if (!File.Exists(versionListFileName))
                 {

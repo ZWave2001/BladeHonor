@@ -63,7 +63,7 @@ namespace BladeHonor
             DREntityGroup drEntityGroup = dtEntityGroup.GetDataRow(drEntity.EntityGroupId);
             string entityGroup = drEntityGroup.EntityGroupName;
 
-            //实体组在需要的时候会创建 不需要自己在Entity中手动添加了
+            //Note: 实体组在需要的时候会创建 不需要自己在Entity中手动添加了
             GameEntry.Entity.AddEntityGroup(entityGroup, drEntityGroup.InstanceAutoReleaseInterval,
                 drEntityGroup.InstanceCapacity, drEntityGroup.InstanceExpireTime, drEntityGroup.InstancePriority);
             

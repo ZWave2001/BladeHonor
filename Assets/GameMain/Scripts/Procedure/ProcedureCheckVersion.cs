@@ -5,6 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 
+using System.IO;
 using GameFramework;
 using GameFramework.Event;
 using GameFramework.Procedure;
@@ -123,8 +124,10 @@ namespace BladeHonor
                 return;
             }
 
-            // 设置资源更新下载地址
-            GameEntry.Resource.UpdatePrefixUri = Utility.Path.GetRegularPath(m_VersionInfo.UpdatePrefixUri);
+            //Note: 设置资源更新下载地址
+            var remoteVersionName = Application.version.Replace('.', '_') + '_' + m_VersionInfo.InternalResourceVersion;
+            Debug.Log($"remoteVersionName {remoteVersionName}");
+            GameEntry.Resource.UpdatePrefixUri = Path.Combine(Utility.Path.GetRegularPath(m_VersionInfo.UpdatePrefixUri), remoteVersionName);
 
             m_CheckVersionComplete = true;
             m_NeedUpdateVersion = GameEntry.Resource.CheckVersionList(m_VersionInfo.InternalResourceVersion) == CheckVersionListResult.NeedUpdate;

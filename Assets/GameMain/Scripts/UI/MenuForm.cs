@@ -61,7 +61,7 @@ namespace BladeHonor
 
         private void OnClickStartGame()
         {
-            _ProcedureMenu.StartGame();
+            GameEntry.UI.OpenUIForm(UIFormId.ChooseLevelForm, this);
         }
 
         protected override void OnOpen(object userData)

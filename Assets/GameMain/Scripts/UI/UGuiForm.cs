@@ -79,21 +79,7 @@ namespace BladeHonor
 #endif
         {
             base.OnInit(userData);
-
-            m_CachedCanvas = gameObject.GetOrAddComponent<Canvas>();
-            m_CachedCanvas.overrideSorting = true;
-            OriginalDepth = m_CachedCanvas.sortingOrder;
-
-            m_CanvasGroup = gameObject.GetOrAddComponent<CanvasGroup>();
-
-            RectTransform transform = GetComponent<RectTransform>();
-            transform.anchorMin = Vector2.zero;
-            transform.anchorMax = Vector2.one;
-            transform.anchoredPosition = Vector2.zero;
-            transform.sizeDelta = Vector2.zero;
-
-            gameObject.GetOrAddComponent<GraphicRaycaster>();
-
+            
             Text[] texts = GetComponentsInChildren<Text>(true);
             for (int i = 0; i < texts.Length; i++)
             {
@@ -103,6 +89,34 @@ namespace BladeHonor
                     texts[i].text = GameEntry.Localization.GetString(texts[i].text).Replace(@"\n", "\n");
                 }
             }
+            
+            
+            m_CachedCanvas = gameObject.GetOrAddComponent<Canvas>();
+            m_CachedCanvas.overrideSorting = true;
+            OriginalDepth = m_CachedCanvas.sortingOrder;
+
+            m_CanvasGroup = gameObject.GetOrAddComponent<CanvasGroup>();
+
+            RectTransform transform = GetComponent<RectTransform>();
+            
+            gameObject.GetOrAddComponent<GraphicRaycaster>();
+            
+            //Note: 设置动态生成的UI参数
+            DynamicUIParams dp = null;
+            if (userData is DynamicUIParams)
+            {
+                dp = (DynamicUIParams)userData;
+                if (dp.Parent != null)
+                    gameObject.transform.SetParent(dp.Parent);
+                if (dp.KeepOriginalSetting)
+                    return;
+            }
+            
+            transform.anchorMin = Vector2.zero;
+            transform.anchorMax = Vector2.one;
+            transform.anchoredPosition = Vector2.zero;
+            transform.sizeDelta = Vector2.zero;
+
         }
 
 #if UNITY_2017_3_OR_NEWER
@@ -217,5 +231,12 @@ namespace BladeHonor
             yield return m_CanvasGroup.FadeToAlpha(0f, duration);
             GameEntry.UI.CloseUIForm(this);
         }
+
+        /// <summary>
+        /// 设置动态生成的UI参数
+        /// </summary>
+        /// <param name="userData">用户自定义数据</param>
+        /// <returns>是否成功设置参数</returns>
+    
     }
 }

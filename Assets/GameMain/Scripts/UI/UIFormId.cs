@@ -38,5 +38,17 @@ namespace BladeHonor
         /// 关于。
         /// </summary>
         AboutForm = 104,
+        
+        
+        /// <summary>
+        /// 选择关卡
+        /// </summary>
+        ChooseLevelForm = 105,
+        
+        /// <summary>
+        /// 关卡
+        /// </summary>
+        LevelForm = 106,
+        
     }
 }

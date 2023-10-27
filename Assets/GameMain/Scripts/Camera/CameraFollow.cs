@@ -6,7 +6,6 @@ namespace BladeHonor
 {
     public class CameraFollow : MonoBehaviour
     {
-        public static GameObject Player;
         public static int startPosX;
         public static int endPosX;
         
@@ -23,20 +22,20 @@ namespace BladeHonor
         // Update is called once per frame
         void Update()
         {
-            if (Player != null)
+            if (GlobalVariables.Player != null)
             {
-                if (Player.transform.position.x < startPosX +  _halfCameraWidth)
+                if (GlobalVariables.Player.transform.position.x < startPosX +  _halfCameraWidth)
                 {
                     _camera.transform.SetLocalPositionX(startPosX + _halfCameraWidth);
                 }
 
-                else if (Player.transform.position.x > endPosX -  _halfCameraWidth)
+                else if (GlobalVariables.Player.transform.position.x > endPosX -  _halfCameraWidth)
                 {
                     _camera.transform.SetLocalPositionX(endPosX - _halfCameraWidth);
                 }
                 else
                 {
-                    _camera.transform.SetLocalPositionX(Player.transform.position.x);
+                    _camera.transform.SetLocalPositionX(GlobalVariables.Player.transform.position.x);
                 }
             }
         }

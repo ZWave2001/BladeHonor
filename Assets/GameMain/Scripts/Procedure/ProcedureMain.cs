@@ -51,9 +51,11 @@ namespace BladeHonor
                     Name = "Player",
                     Position = new Vector3(data.PlayerSpawnPos[0].x, data.PlayerSpawnPos[0].y, 0),
                 });
+                
+             
             }
             else if (ne.UserData is ThiefData)
-                CameraFollow.Player = ne.Entity.gameObject;
+                GlobalVariables.Player = ne.Entity.gameObject;
         }
 
 
