@@ -90,17 +90,6 @@ namespace BladeHonor
                 }
             }
             
-            
-            m_CachedCanvas = gameObject.GetOrAddComponent<Canvas>();
-            m_CachedCanvas.overrideSorting = true;
-            OriginalDepth = m_CachedCanvas.sortingOrder;
-
-            m_CanvasGroup = gameObject.GetOrAddComponent<CanvasGroup>();
-
-            RectTransform transform = GetComponent<RectTransform>();
-            
-            gameObject.GetOrAddComponent<GraphicRaycaster>();
-            
             //Note: 设置动态生成的UI参数
             DynamicUIParams dp = null;
             if (userData is DynamicUIParams)
@@ -111,6 +100,13 @@ namespace BladeHonor
                 if (dp.KeepOriginalSetting)
                     return;
             }
+            
+            m_CachedCanvas = gameObject.GetOrAddComponent<Canvas>();
+            m_CachedCanvas.overrideSorting = true;
+            OriginalDepth = m_CachedCanvas.sortingOrder;
+            m_CanvasGroup = gameObject.GetOrAddComponent<CanvasGroup>();
+            RectTransform transform = GetComponent<RectTransform>();
+            gameObject.GetOrAddComponent<GraphicRaycaster>();
             
             transform.anchorMin = Vector2.zero;
             transform.anchorMax = Vector2.one;
@@ -136,9 +132,12 @@ namespace BladeHonor
         {
             base.OnOpen(userData);
 
-            m_CanvasGroup.alpha = 0f;
-            StopAllCoroutines();
-            StartCoroutine(m_CanvasGroup.FadeToAlpha(1f, FadeTime));
+            if (m_CanvasGroup != null)
+            {
+                m_CanvasGroup.alpha = 0f;
+                StopAllCoroutines();
+                StartCoroutine(m_CanvasGroup.FadeToAlpha(1f, FadeTime));
+            }
         }
 
 #if UNITY_2017_3_OR_NEWER

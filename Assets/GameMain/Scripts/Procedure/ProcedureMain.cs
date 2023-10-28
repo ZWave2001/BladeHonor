@@ -27,13 +27,14 @@ namespace BladeHonor
         {
             base.OnEnter(procedureOwner);
             GameEntry.Event.Subscribe(ShowEntitySuccessEventArgs.EventId, OnShowEntitySuccess);
-            
-            GameEntry.Entity.ShowNewLevel(new LevelData(GameEntry.Entity.GenerateSerialId(), 1007)
+
+            var levelId = procedureOwner.GetData<VarInt32>("NextLevelId");
+            GameEntry.Entity.ShowNewLevel(new LevelData(GameEntry.Entity.GenerateSerialId(), levelId)
             {
                 Position = new Vector3(0,0,0),
             });
-            
-            
+
+            procedureOwner.RemoveData("NextLevelId");
         }
 
         private void OnShowEntitySuccess(object sender, GameEventArgs e)

@@ -487,7 +487,7 @@ MonoBehaviour:
   _closeBtn: {fileID: 2435428312648901254}
   _selectBtn: {fileID: 2435428313831108807}
   toggleGroup: {fileID: 2435428313800858149}
-  selectIndex: 0
+  selectIndex: -1
 --- !u!1 &2435428313800858150
 GameObject:
   m_ObjectHideFlags: 0

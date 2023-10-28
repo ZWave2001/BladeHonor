@@ -25,13 +25,6 @@ namespace BladeHonor
         {
             base.OnInit(userData);
             _toggle.onValueChanged.AddListener(OnToggleClick);
-        }
-        
-        
-
-        protected override void OnOpen(object userData)
-        {
-            base.OnOpen(userData);
             
             _progressImg.gameObject.SetActive(false);
             _downloadRes.gameObject.SetActive(false);
@@ -52,6 +45,15 @@ namespace BladeHonor
             _index = _levelParams.Index;
             
             _title.text = string.Format(_title.text, _index + 1);
+        }
+        
+        
+
+        protected override void OnOpen(object userData)
+        {
+            base.OnOpen(userData);
+            
+            
             
         }
 
@@ -61,6 +63,12 @@ namespace BladeHonor
                 _selectLevelForm.selectIndex = _index;
             else
                 _selectLevelForm.selectIndex = -1;
+        }
+
+
+        protected override void OnClose(bool isShutdown, object userData)
+        {
+            base.OnClose(isShutdown, userData);
         }
     }
 }
