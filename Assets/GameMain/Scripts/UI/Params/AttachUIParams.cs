@@ -10,7 +10,7 @@ namespace BladeHonor
     /// <summary>
     /// 动态生成UI所包含的参数
     /// </summary>
-    public class DynamicUIParams : IReference
+    public class AttachUIParams : IReference
     {
         /// <summary>
         /// 父组件
@@ -40,13 +40,13 @@ namespace BladeHonor
             set;
         }
 
-        public static DynamicUIParams Create(Transform parent, bool keepOriginalSetting, object userData)
+        public static AttachUIParams Create(Transform parent, bool keepOriginalSetting, object userData)
         {
-            DynamicUIParams dynamicUIParams = ReferencePool.Acquire<DynamicUIParams>();
-            dynamicUIParams.Parent = parent;
-            dynamicUIParams.KeepOriginalSetting = keepOriginalSetting;
-            dynamicUIParams.UserData = userData;
-            return dynamicUIParams;
+            AttachUIParams attachUIParams = ReferencePool.Acquire<AttachUIParams>();
+            attachUIParams.Parent = parent;
+            attachUIParams.KeepOriginalSetting = keepOriginalSetting;
+            attachUIParams.UserData = userData;
+            return attachUIParams;
         }
 
         public void Clear()

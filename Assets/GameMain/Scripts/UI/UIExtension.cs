@@ -166,6 +166,12 @@ namespace BladeHonor
             uiComponent.OpenUIForm(UIFormId.PopupForm, popupParams);
         }
 
+        public static void AttachUIForm(this UIComponent uiComponent, UIForm parentUIForm, AttachFormId attachFormId,
+            AttachUIParams attachUIParams = null)
+        {
+            
+        }
+
         private static void OpenNativeDialog(PopupParams popupParams)
         {
             // TODO：这里应该弹出原生对话框，先简化实现为直接按确认按钮

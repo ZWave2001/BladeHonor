@@ -21,7 +21,6 @@ namespace BladeHonor
         private DRLevel[] _drsLevel;
 
         public ToggleGroup toggleGroup;
-        public int[] levelFormIds;
         public int selectIndex = -1;
 
         
@@ -35,8 +34,6 @@ namespace BladeHonor
             
             var dtLevel = GameEntry.DataTable.GetDataTable<DRLevel>();
             _drsLevel = dtLevel.GetAllDataRows();
-            levelFormIds = new int[_drsLevel.Length];
-
 
         }
 
@@ -46,21 +43,13 @@ namespace BladeHonor
         {
             base.OnOpen(userData);
 
-            for (int i = 0; i < _drsLevel.Length; i++)
-            {
-                var serialId = GameEntry.UI.OpenUIForm(UIFormId.LevelForm, DynamicUIParams.Create(_levelContainer, true,
-                    LevelParams.Create(_drsLevel[i], this, i)));
-                levelFormIds[i] = serialId ?? 0;
-            }
+
         }
 
         protected override void OnClose(bool isShutdown, object userData)
         {
             base.OnClose(isShutdown, userData);
-            foreach (var levelFormId in levelFormIds)
-            {
-                GameEntry.UI.CloseUIForm(levelFormId);
-            }
+        
         }
 
         private void OnCloseBtnClick()

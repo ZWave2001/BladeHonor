@@ -90,17 +90,6 @@ namespace BladeHonor
                 }
             }
             
-            //Note: 设置动态生成的UI参数
-            DynamicUIParams dp = null;
-            if (userData is DynamicUIParams)
-            {
-                dp = (DynamicUIParams)userData;
-                if (dp.Parent != null)
-                    gameObject.transform.SetParent(dp.Parent);
-                if (dp.KeepOriginalSetting)
-                    return;
-            }
-            
             m_CachedCanvas = gameObject.GetOrAddComponent<Canvas>();
             m_CachedCanvas.overrideSorting = true;
             OriginalDepth = m_CachedCanvas.sortingOrder;
