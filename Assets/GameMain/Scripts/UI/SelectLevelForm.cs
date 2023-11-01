@@ -42,7 +42,7 @@ namespace BladeHonor
         protected override void OnOpen(object userData)
         {
             base.OnOpen(userData);
-
+            
 
         }
 
