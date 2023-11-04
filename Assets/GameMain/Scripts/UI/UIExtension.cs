@@ -165,12 +165,7 @@ namespace BladeHonor
             
             uiComponent.OpenUIForm(UIFormId.PopupForm, popupParams);
         }
-
-        public static void AttachUIForm(this UIComponent uiComponent, UIForm parentUIForm, AttachFormId attachFormId,
-            AttachUIParams attachUIParams = null)
-        {
-            
-        }
+        
 
         private static void OpenNativeDialog(PopupParams popupParams)
         {

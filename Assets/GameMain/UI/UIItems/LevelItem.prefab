@@ -172,9 +172,9 @@ GameObject:
   - component: {fileID: 7618587649882451308}
   - component: {fileID: 7618587649882451307}
   - component: {fileID: 7618587649882451309}
-  - component: {fileID: -7443361879137176767}
+  - component: {fileID: 3455061031466039344}
   m_Layer: 0
-  m_Name: LevelForm
+  m_Name: LevelItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -290,7 +290,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
---- !u!114 &-7443361879137176767
+--- !u!114 &3455061031466039344
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -299,13 +299,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7618587649882451305}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d15d04fce8e943b18d896015ea1fa790, type: 3}
+  m_Script: {fileID: 11500000, guid: 677c248b6ca1ba24ab46de5014246680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _progressImg: {fileID: 7618587650386962651}
   _title: {fileID: 7618587649035094523}
   _downloadRes: {fileID: 7618587648877074929}
-  _statusImg: {fileID: 7618587649882451307}
+  _process: {fileID: 7618587650386962651}
   _toggle: {fileID: 7618587649882451309}
   _index: 0
 --- !u!1 &7618587650029704400

@@ -17,6 +17,7 @@ namespace BladeHonor
         {
             _camera = Camera.main;
             _halfCameraWidth = _camera.orthographicSize * _camera.aspect;
+            GlobalVariables.FiledOfView = _halfCameraWidth;
         }
 
         // Update is called once per frame

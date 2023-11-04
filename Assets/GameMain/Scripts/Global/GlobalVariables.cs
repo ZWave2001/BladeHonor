@@ -9,5 +9,6 @@ namespace BladeHonor
     public static class GlobalVariables
     {
         public static GameObject Player;
+        public static float FiledOfView;
     }
 }
