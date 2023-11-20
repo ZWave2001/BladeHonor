@@ -31,7 +31,7 @@ namespace BladeHonor
         protected override void OnUpdate(float elapseSeconds, float realElapseSeconds)
         {
             base.OnUpdate(elapseSeconds, realElapseSeconds);
-            var playerPositionX = GlobalVariables.Player
+            var playerPositionX = GlobalVariables.Player;
         }
     }
 }
