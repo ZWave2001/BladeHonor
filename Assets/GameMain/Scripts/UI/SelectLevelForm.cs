@@ -3,6 +3,7 @@
 // --------------------------------------------------------------------------
 
 using System.Collections.Generic;
+using System.Diagnostics;
 using GameFramework.DataTable;
 using GameFramework.Event;
 using GameFramework.Resource;
@@ -32,7 +33,7 @@ namespace BladeHonor
 
             _closeBtn.onClick.AddListener(OnCloseBtnClick);
             _selectBtn.onClick.AddListener(OnSelectBtnClick);
-
+            Debug.Log("HolyShit");
 
             var dtLevel = GameEntry.DataTable.GetDataTable<DRLevel>();
             _drsLevel = dtLevel.GetAllDataRows();
