@@ -43,6 +43,7 @@ namespace BladeHonor
 
         protected override void OnOpen(object userData)
         {
+            Debug.Log("Test");
             base.OnOpen(userData);
 
             if (_levelItems.Count != _drsLevel.Length)
